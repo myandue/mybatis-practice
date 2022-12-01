@@ -7,7 +7,8 @@ import java.util.Optional;
 
 public interface CompanyRepository {
 
-    int save(Company company);
-    Optional<Company> findById(int id);
+    Company save(Company company);
     List<Company> findAll();
+    Optional<Company> findById(int id);
+
 }
