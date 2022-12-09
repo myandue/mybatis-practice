@@ -11,5 +11,5 @@ import java.util.List;
 @Mapper
 public interface CompanyMapper {
 
-    List<HashMap<Object, Object>> findAll(HashMap<Object, Object> vo);
+    Company findById(int id);
 }

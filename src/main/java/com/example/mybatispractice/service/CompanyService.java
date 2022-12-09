@@ -19,12 +19,12 @@ public class CompanyService {
 //        return companyMapper.save(company);
 //    }
 
-    public List<HashMap<Object,Object>> findAll(HashMap<Object, Object> vo){
-
-        return companyMapper.findAll(vo);
-    }
-
-//    public Optional<Company> findById(int id){
-//        return companyMapper.findById(id);
+//    public List<HashMap<Object,Object>> findAll(HashMap<Object, Object> vo){
+//
+//        return companyMapper.findAll(vo);
 //    }
+
+    public Company findById(int id){
+        return companyMapper.findById(id);
+    }
 }

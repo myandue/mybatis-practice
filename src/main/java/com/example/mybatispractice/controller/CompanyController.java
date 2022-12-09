@@ -21,27 +21,14 @@ public class CompanyController {
 //    public Company postCompany(@RequestBody Company company){
 //        return companyService.join(company);
 //    }
-
-    @GetMapping("")
-    public void getAllCompany() {
-        HashMap<Object, Object> parameterMap = new HashMap<Object, Object>();
-        //parameterMap.put("region", "서울");
-
-        List<HashMap<Object, Object>> selectList = companyService.findAll(parameterMap);
-
-        for (HashMap<Object, Object> rowMap : selectList) {
-            for (Map.Entry<Object, Object> rowEntry : rowMap.entrySet()) {
-                Object key = rowEntry.getKey();
-                Object value = rowEntry.getValue();
-                System.out.print(String.format(key + ":" + value + "  "));
-
-            }
-            //return companyService.findAll();
-        }
-    }
-
-//    @GetMapping("/{id}")
-//    public Optional<Company> findCompanyById(@PathVariable("id") int id){
-//        return companyService.findById(id);
+//
+//    @GetMapping("")
+//    public void getAllCompany() {
+//
 //    }
+
+    @GetMapping("/{id}")
+    public Company findById(@PathVariable("id") int id){
+        return companyService.findById(id);
+    }
 }
