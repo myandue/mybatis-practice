@@ -21,14 +21,15 @@ public class CompanyController {
 //    public Company postCompany(@RequestBody Company company){
 //        return companyService.join(company);
 //    }
-//
-//    @GetMapping("")
-//    public void getAllCompany() {
-//
-//    }
 
-    @GetMapping("/{id}")
-    public Company findById(@PathVariable("id") int id){
-        return companyService.findById(id);
+    @GetMapping("")
+    public void getAllCompany() {
+        List<Company> companyList = companyService.findAll();
+        System.out.println("companyList = " + companyList);
     }
+
+//    @GetMapping("/{id}")
+//    public Company findById(@PathVariable("id") int id){
+//        return companyService.findById(id);
+//    }
 }
