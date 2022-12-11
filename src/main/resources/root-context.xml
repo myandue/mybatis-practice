@@ -30,10 +30,10 @@
         <property name="mapperLocations" value="classpath:mapper/**/*Mapper.xml"/>
     </bean>
 
-    <!-- 3. Mybatis DB 프로그램의 자동화 객체 -> template -->
+<!--     3. Mybatis DB 프로그램의 자동화 객체 -> template -->
 
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
     </bean>
 
 

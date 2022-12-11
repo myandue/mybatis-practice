@@ -11,5 +11,5 @@ import java.util.List;
 @Mapper
 public interface CompanyMapper {
 
-    List<Company> findAll();
+    List<Company> findAllCompany();
 }

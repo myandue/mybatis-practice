@@ -25,6 +25,6 @@ public class CompanyService {
 //    }
 
     public List<Company> findAll(){
-        return companyMapper.findAll();
+        return companyMapper.findAllCompany();
     }
 }

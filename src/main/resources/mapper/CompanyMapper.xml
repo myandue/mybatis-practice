@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.mybatispractice.mapper.CompanyMapper">
-    <select id="findAll" resultType="List<Company>">
+    <select id="findAllCompany" resultType="Company">
         SELECT * FROM company
     </select>
 </mapper>

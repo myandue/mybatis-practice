@@ -12,19 +12,20 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping("/employee")
 public class EmployeeController {
-//
-//    private final EmployeeService employeeService;
-//
+
+    private final EmployeeService employeeService;
+
 //    @PostMapping("")
 //    public Employee postEmployee(@RequestBody Employee employee) {
 //        return employeeService.join(employee);
 //    }
-//
-//    @GetMapping("")
-//    public List<Employee> getAllEmployee() {
-//        return employeeService.findAll();
-//    }
-//
+
+    @GetMapping("")
+    public void getAllEmployee() {
+        List<Employee> employeeList = employeeService.findAll();
+        System.out.println("employeeList = " + employeeList);
+    }
+
 //    @GetMapping("/{id}")
 //    public Optional<Employee> findEmployeeById(@PathVariable("id") int id) {
 //        return employeeService.findById(id);

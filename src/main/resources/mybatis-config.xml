@@ -3,26 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
-
 <configuration>
+    <properties resource="database.properties"/>
+
     <!-- DB로 전달하거나 전달 받을 때의 레코드 형태 -->
     <typeAliases>
         <!-- 레코드의 형태를 memberVO로 합니다. -->
         <typeAlias type="com.example.mybatispractice.domain.Company" alias="Company"></typeAlias>
         <typeAlias type="com.example.mybatispractice.domain.Employee" alias="Employee"></typeAlias>
     </typeAliases>
-
-<!--    <environments default="development">-->
-<!--        <environment id="development">-->
-<!--            <transactionManager type="JDBC"></transactionManager>-->
-<!--            <dataSource type="POOLED">-->
-<!--                <property name="driver" value="oracle.jdbc.driver.OracleDriver"></property>-->
-<!--                <property name="url" value="JDBC:oracle:thin:@localhost:1521:XE"></property>-->
-<!--                <property name="username" value="계정명"></property>-->
-<!--                <property name="password" value="비밀번호"></property>-->
-<!--            </dataSource>-->
-<!--        </environment>-->
-<!--    </environments>-->
 
     <!-- sql문이 있는 xml을 읽어들입니다. 패키지 이름 전부 작성해줘야 합니다. -->
     <mappers>
