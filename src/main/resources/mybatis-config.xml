@@ -4,18 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <properties resource="database.properties"/>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
 
-    <!-- DB로 전달하거나 전달 받을 때의 레코드 형태 -->
     <typeAliases>
-        <!-- 레코드의 형태를 memberVO로 합니다. -->
-        <typeAlias type="com.example.mybatispractice.domain.Company" alias="Company"></typeAlias>
-        <typeAlias type="com.example.mybatispractice.domain.Employee" alias="Employee"></typeAlias>
+        <typeAlias type="com.example.mybatispractice.domain.Company" alias="Company"/>
+        <typeAlias type="com.example.mybatispractice.domain.Employee" alias="Employee"/>
     </typeAliases>
 
-    <!-- sql문이 있는 xml을 읽어들입니다. 패키지 이름 전부 작성해줘야 합니다. -->
     <mappers>
-        <mapper resource="mapper/CompanyMapper.xml"></mapper>
-        <mapper resource="mapper/EmployeeMapper.xml"></mapper>
+        <mapper resource="mapper/CompanyMapper.xml"/>
+        <mapper resource="mapper/EmployeeMapper.xml"/>
     </mappers>
 </configuration>

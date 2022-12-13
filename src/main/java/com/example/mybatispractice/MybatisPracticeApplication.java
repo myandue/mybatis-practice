@@ -3,11 +3,11 @@ package com.example.mybatispractice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.example.mybatispractice.mapper"})
 public class MybatisPracticeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MybatisPracticeApplication.class, args);
+			SpringApplication.run(MybatisPracticeApplication.class, args);
 	}
 
 }

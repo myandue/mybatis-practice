@@ -3,6 +3,7 @@ package com.example.mybatispractice.service;
 import com.example.mybatispractice.domain.Company;
 import com.example.mybatispractice.mapper.CompanyMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -25,6 +26,8 @@ public class CompanyService {
 //    }
 
     public List<Company> findAll(){
-        return companyMapper.findAllCompany();
+        List<Company> allCompany = companyMapper.findAllCompany();
+        System.out.println("allCompany = " + allCompany);
+        return allCompany;
     }
 }
