@@ -1,5 +1,6 @@
 package com.example.mybatispractice;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -10,18 +11,19 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.io.IOException;
 
 //@PropertySource("classpath:application.properties")
-//@MapperScan(basePackages = {"com.example.mybatispractice.mapper"})
+@MapperScan(value="com.example.mybatispractice.mapper")
 @Configuration
+@RequiredArgsConstructor
 public class DatabaseConfig {
-
     @Value("${spring.datasource.url}")
     private String url;
 
@@ -33,8 +35,8 @@ public class DatabaseConfig {
 
     @Value("${spring.datasource.driverClassName}")
     private String driverClassName;
-    @Autowired
-    ApplicationContext applicationContext;
+
+    private final ApplicationContext applicationContext;
 
     @Bean
     public DataSource dataSource(){
@@ -52,7 +54,8 @@ public class DatabaseConfig {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setConfigLocation(applicationContext.getResource("classpath:mybatis-config.xml"));
-        factoryBean.setMapperLocations(applicationContext.getResource("classpath:mapper/**/*.xml"));
+        factoryBean.setMapperLocations(applicationContext.getResources("classpath:mapper/**/*.xml"));
+        //    factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*.xml"));
         return factoryBean;
     }
 

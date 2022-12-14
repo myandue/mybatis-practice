@@ -3,6 +3,7 @@ package com.example.mybatispractice.controller;
 import com.example.mybatispractice.domain.Company;
 import com.example.mybatispractice.service.CompanyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -24,6 +25,7 @@ public class CompanyController {
 
     @GetMapping("")
     public void getAllCompany() {
+        System.out.println("hi");
         List<Company> companyList = companyService.findAll();
         System.out.println("companyList = " + companyList);
     }

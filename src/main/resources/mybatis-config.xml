@@ -13,8 +13,4 @@
         <typeAlias type="com.example.mybatispractice.domain.Employee" alias="Employee"/>
     </typeAliases>
 
-    <mappers>
-        <mapper resource="mapper/CompanyMapper.xml"/>
-        <mapper resource="mapper/EmployeeMapper.xml"/>
-    </mappers>
 </configuration>
