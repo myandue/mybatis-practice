@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mybatispractice.mapper.CompanyMapper">
+    <resultMap id="companyMap" type="Company">
+        <collection property="employeeList" column="companyId=id" javaType="List"  ofType="Employee" select="com.example.mybatispractice.mapper.EmployeeMapper.getEmployee"></collection>
+    </resultMap>
+
+    <select id="getCompany" resultMap="companyMap">
+        SELECT * FROM company
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="Company" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO company(name, address) VALUES (#{name}, #{address})
+    </insert>
+</mapper>

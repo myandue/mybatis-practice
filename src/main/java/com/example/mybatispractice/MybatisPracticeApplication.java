@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MybatisPracticeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MybatisPracticeApplication.class, args);
+			SpringApplication.run(MybatisPracticeApplication.class, args);
 	}
 
 }

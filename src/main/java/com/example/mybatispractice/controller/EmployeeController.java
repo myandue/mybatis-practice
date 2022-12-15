@@ -21,12 +21,12 @@ public class EmployeeController {
     }
 
     @GetMapping("")
-    public List<Employee> getAllEmployee() {
+    public List<Employee> findAllEmployee() {
         return employeeService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Employee> findEmployeeById(@PathVariable("id") int id) {
-        return employeeService.findById(id);
+    public Employee findEmployeeById(@PathVariable("id") int id) {
+        return employeeService.findEmployeeById(id);
     }
 }

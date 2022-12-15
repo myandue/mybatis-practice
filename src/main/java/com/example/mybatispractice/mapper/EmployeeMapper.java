@@ -1,31 +1,14 @@
 package com.example.mybatispractice.mapper;
 
 import com.example.mybatispractice.domain.Employee;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-import java.util.Optional;
-
 @Mapper
 public interface EmployeeMapper {
 
-    @Insert("INSERT INTO employee(company_id, employee_name, employee_address) VALUES(#{employee.companyId}, #{employee.name}, #{employee.address})")
-    @Options(useGeneratedKeys = true, keyProperty = "id")
-    int insert(@Param("employee") Employee employee);
+    void insert(Employee employee);
+    List<Employee> getEmployee();
+    List<Employee> getEmployee(int id);
 
-    @Select("SELECT * FROM employee")
-    @Results(id="EmployeeMap", value={
-            @Result(property = "companyId", column = "company_id"),
-            @Result(property="name", column = "employee_name"),
-            @Result(property="address", column = "employee_address")
-    })
-    List<Employee> getAll();
-
-    @Select("SELECT * FROM employee WHERE id=#{id}")
-    @ResultMap("EmployeeMap")
-    Optional<Employee> getById(@Param("id") int id);
-
-    @Select("SELECT * FROM employee WHERE company_id=#{companyId}")
-    @ResultMap("EmployeeMap")
-    List<Employee> getByCompanyId(@Param("companyId") int companyId);
 }

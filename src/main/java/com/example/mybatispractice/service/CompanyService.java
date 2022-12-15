@@ -1,29 +1,28 @@
 package com.example.mybatispractice.service;
 
 import com.example.mybatispractice.domain.Company;
-import com.example.mybatispractice.repository.CompanyRepository;
+import com.example.mybatispractice.mapper.CompanyMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class CompanyService {
 
-    private final CompanyRepository companyRepository;
+    private final CompanyMapper companyMapper;
 
     public Company join(Company company){
-        return companyRepository.save(company);
+        companyMapper.insert(company);
+        return company;
     }
 
-    public List<Company> findAll(){
-
-        return companyRepository.findAll();
+    public List<Company> findAllCompany(){
+        return companyMapper.getCompany();
     }
 
-    public Optional<Company> findById(int id){
-        return companyRepository.findById(id);
+    public Company findCompanyById(int id){
+        return companyMapper.getCompany(id);
     }
 }
