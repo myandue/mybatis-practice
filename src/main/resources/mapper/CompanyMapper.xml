@@ -4,7 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.mybatispractice.mapper.CompanyMapper">
-    <select id="findAllCompany" resultType="Company">
+    <select id="getCompany" resultType="Company">
         SELECT * FROM company
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+        </where>
     </select>
+
+    <insert id="insert" parameterType="Company" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO company(name, address) VALUES (#{name}, #{address})
+    </insert>
 </mapper>

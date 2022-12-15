@@ -18,20 +18,18 @@ public class CompanyController {
 
     private final CompanyService companyService;
 
-//    @PostMapping("")
-//    public Company postCompany(@RequestBody Company company){
-//        return companyService.join(company);
-//    }
-
-    @GetMapping("")
-    public void getAllCompany() {
-        System.out.println("hi");
-        List<Company> companyList = companyService.findAll();
-        System.out.println("companyList = " + companyList);
+    @PostMapping("")
+    public Company postCompany(@RequestBody Company company){
+        return companyService.join(company);
     }
 
-//    @GetMapping("/{id}")
-//    public Company findById(@PathVariable("id") int id){
-//        return companyService.findById(id);
-//    }
+    @GetMapping("")
+    public List<Company> getAllCompany() {
+        return companyService.findAllCompany();
+    }
+
+    @GetMapping("/{id}")
+    public Company getCompanyById(@PathVariable("id") int id){
+        return companyService.findCompanyById(id);
+    }
 }

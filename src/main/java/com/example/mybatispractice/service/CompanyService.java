@@ -3,12 +3,9 @@ package com.example.mybatispractice.service;
 import com.example.mybatispractice.domain.Company;
 import com.example.mybatispractice.mapper.CompanyMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,18 +13,16 @@ public class CompanyService {
 
     private final CompanyMapper companyMapper;
 
-//    public Company join(Company company){
-//        return companyMapper.save(company);
-//    }
+    public Company join(Company company){
+        companyMapper.insert(company);
+        return company;
+    }
 
-//    public List<HashMap<Object,Object>> findAll(HashMap<Object, Object> vo){
-//
-//        return companyMapper.findAll(vo);
-//    }
+    public List<Company> findAllCompany(){
+        return companyMapper.getCompany();
+    }
 
-    public List<Company> findAll(){
-        List<Company> allCompany = companyMapper.findAllCompany();
-        System.out.println("allCompany = " + allCompany);
-        return allCompany;
+    public Company findCompanyById(int id){
+        return companyMapper.getCompany(id);
     }
 }
