@@ -4,7 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.mybatispractice.mapper.EmployeeMapper">
-    <select id="findAllEmployee" resultType="Employee">
+    <select id="getEmployee" resultType="Employee">
         SELECT * FROM employee
+        <choose>
+            <when test="id!=null">
+                WHERE id=#{id}
+            </when>
+            <when test="companyId!=null">
+                WHERE company_id=#{companyId}
+            </when>
+        </choose>
     </select>
+
+    <insert id="insert" parameterType="Employee" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO employee(company_id, name, address) VALUES (#{companyId}, #{name}, #{address})
+    </insert>
 </mapper>

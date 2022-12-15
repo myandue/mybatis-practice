@@ -15,19 +15,18 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-//    @PostMapping("")
-//    public Employee postEmployee(@RequestBody Employee employee) {
-//        return employeeService.join(employee);
-//    }
-
-    @GetMapping("")
-    public void getAllEmployee() {
-        List<Employee> employeeList = employeeService.findAll();
-        System.out.println("employeeList = " + employeeList);
+    @PostMapping("")
+    public Employee postEmployee(@RequestBody Employee employee) {
+        return employeeService.join(employee);
     }
 
-//    @GetMapping("/{id}")
-//    public Optional<Employee> findEmployeeById(@PathVariable("id") int id) {
-//        return employeeService.findById(id);
-//    }
+    @GetMapping("")
+    public List<Employee> findAllEmployee() {
+        return employeeService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Employee findEmployeeById(@PathVariable("id") int id) {
+        return employeeService.findEmployeeById(id);
+    }
 }
